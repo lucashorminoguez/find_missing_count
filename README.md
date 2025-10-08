@@ -10,4 +10,4 @@ A desktop app built in Python + Tkinter that parses text and detects missing num
 
 *As default the language is set as spanish*
 
-![Image_Alt](https://github.com/lucashorminoguez/find_missing_counter/blob/main/resources/screenshot.png?raw=true)
+![Image_Alt](https://github.com/lucashorminoguez/find_missing_count/blob/main/resources/screenshot.png)
