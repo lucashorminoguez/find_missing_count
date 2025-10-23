@@ -98,20 +98,20 @@ class BuscadorApp:
         self.entry_fin = tk.Entry(frame_inputs, font=fuente_entry, bg="#ECEFF4", fg="#2E3440")
         self.entry_fin.grid(row=2, column=1, sticky="ew", padx=5, pady=5)
 
-        self.label_repeticiones = tk.Label(frame_inputs, text=text_data[self.current_lang]['repeticiones'], bg="#2E3440", fg="#D8DEE9", font=fuente_label)
-        self.label_repeticiones.grid(row=3, column=0, sticky="e", padx=5, pady=5)
-        repeticiones_var = tk.StringVar(value="1")
-        self.entry_repeticiones = tk.Spinbox(
+        self.label_ocurrencias = tk.Label(frame_inputs, text=text_data[self.current_lang]['ocurrencias'], bg="#2E3440", fg="#D8DEE9", font=fuente_label)
+        self.label_ocurrencias.grid(row=3, column=0, sticky="e", padx=5, pady=5)
+        ocurrencias_var = tk.StringVar(value="1")
+        self.entry_ocurrencias = tk.Spinbox(
             frame_inputs, 
-            from_=0, 
+            from_=1, 
             to=100, 
-            textvariable=repeticiones_var, 
+            textvariable=ocurrencias_var, 
             font=fuente_entry, 
             bg="#ECEFF4", 
             fg="#2E3440",
             width=5
         )
-        self.entry_repeticiones.grid(row=3, column=1, sticky="w", padx=5, pady=5)
+        self.entry_ocurrencias.grid(row=3, column=1, sticky="w", padx=5, pady=5)
 
         frame_botones = tk.Frame(self.root, bg="#2E3440")
         frame_botones.pack(pady=(0, 10))
@@ -148,7 +148,7 @@ class BuscadorApp:
         self.label_prefijo.config(text=lang_texts['prefijo'])
         self.label_inicio.config(text=lang_texts['inicio'])
         self.label_fin.config(text=lang_texts['fin'])
-        self.label_repeticiones.config(text=lang_texts['repeticiones'])
+        self.label_ocurrencias.config(text=lang_texts['ocurrencias'])
         self.btn_buscar_texto.config(text=lang_texts['buscar_texto'])
         self.btn_buscar_archivo.config(text=lang_texts['buscar_archivo'])
         self.btn_copiar.config(text=lang_texts['copiar'])
@@ -165,19 +165,19 @@ class BuscadorApp:
             prefijo = self.entry_prefijo.get().strip()
             inicio = int(self.entry_inicio.get())
             fin = int(self.entry_fin.get())
-            repeticiones = int(self.entry_repeticiones.get())
+            ocurrencias = int(self.entry_ocurrencias.get())
         except ValueError:
             messagebox.showerror(lang_texts['error_title'], lang_texts['error_datos_msg'])
             return
 
-        faltantes = encontrar_faltantes(texto_a_buscar, prefijo, inicio, fin, repeticiones)
+        faltantes = encontrar_faltantes(texto_a_buscar, prefijo, inicio, fin, ocurrencias)
 
         if faltantes:
             cantidad_faltantes = len(faltantes)
-            if repeticiones < 2:
+            if ocurrencias < 2:
                 encabezado = lang_texts['faltantes_msg'].format(cantidad=cantidad_faltantes)
             else:
-                encabezado = lang_texts['menos_rep_msg'].format(cantidad=cantidad_faltantes, repeticiones=repeticiones)
+                encabezado = lang_texts['menos_rep_msg'].format(cantidad=cantidad_faltantes, ocurrencias=ocurrencias)
             
             self.resultado_text.insert(tk.END, encabezado + ", ".join(faltantes))
             self.btn_copiar.grid()  
