@@ -24,7 +24,7 @@ A simple desktop app built in Python + Tkinter that parses text and detects miss
 pyinstaller --onefile --windowed --icon=resources\icono.ico --add-data "resources\meme.gif;resources" --add-data "resources\icono.ico;resources" --name=Find_Missing_Count code\main.py
 ```
 
-#### Linux
+### Linux
 
 ```bash
 pyinstaller --onefile --windowed --icon=resources/icono.ico --add-data "resources/meme.gif:resources" --add-data "resources/icono.ico:resources" --name=Find_Missing_Count code/main.py
