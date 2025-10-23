@@ -1,6 +1,8 @@
 # 🔢Find_missing_count :
 
-A desktop app built in Python + Tkinter that parses text and detects missing numbers in a sequence.
+A simple desktop app built in Python + Tkinter that parses text and detects missing numbers in a sequence.
+
+--- 
 
 ## How to use : 
 
@@ -12,5 +14,21 @@ A desktop app built in Python + Tkinter that parses text and detects missing num
 
 ![Image_Alt](https://github.com/lucashorminoguez/find_missing_count/blob/main/resources/screenshot.png)
 
-## Download
+---
+
+## Compile by yourself : 
+
+### Windows
+```bash
+pyinstaller --onefile --windowed --icon=resources\icono.ico --add-data "resources\meme.gif;resources" --add-data "resources\icono.ico;resources" --name=Find_Missing_Count code\main.py
+```
+
+#### Linux
+
+```bash
+pyinstaller --onefile --windowed --icon=resources/icono.ico --add-data "resources/meme.gif:resources" --add-data "resources/icono.ico:resources" --name=Find_Missing_Count code/main.py
+
+---
+
+## Download .exe
 [RELEASES](https://github.com/lucashorminoguez/find_missing_count/releases)
