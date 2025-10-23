@@ -33,4 +33,4 @@ pyinstaller --onefile --windowed --icon=resources/icono.ico --add-data "resource
 ---
 
 ## Download .exe
-[RELEASES](https://github.com/lucashorminoguez/find_missing_count/releases)
+[LAST RELEASE](https://github.com/lucashorminoguez/find_missing_count/releases/latest/download/NOMBRE-DE-TU-ARCHIVO.exe)
